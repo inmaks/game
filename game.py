@@ -5,8 +5,8 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))
 entX = 400
 entY = 300
-current_path = os.path.dirname(__file__) # Where your .py file is located
-resource_path = os.path.join(current_path, 'resources') # The resource folder path
+current_path = os.path.dirname(__file__)
+resource_path = os.path.join(current_path, 'resources')
 image_path = os.path.join(resource_path, 'images')
 wallsX = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 wallsY = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
