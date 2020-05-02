@@ -12,6 +12,7 @@ s = 0
 
 current_path = os.path.dirname(__file__)
 resource_path = os.path.join(current_path, 'resources')
+sound_path = os.path.join(current_path, 'sounds')
 image_path = os.path.join(resource_path, 'images')
 
 wallsX = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -22,7 +23,10 @@ pygame.display.set_icon(icon)
 
 running = True
 
-lastKey = "u"
+sound = pygame.mixer.Sound(os.path.join(sound_path, 'Hit 1.wav'))
+music = pygame.mixer.music.load(os.path.join(sound_path, 'bgm.wav'))
+
+pygame.mixer.music.play(-1)
 
 for i in range(0, 10):
     wallsX[i] = random.randrange(0, 750)
@@ -82,6 +86,7 @@ while running:
         bulletY = entY
     if pygame.mouse.get_pressed()[0]:
         if bulletX == entX and bulletY == entY and s == 0:
+            sound.play()
             lk = lastKey
             s = 1
     if s == 1:
