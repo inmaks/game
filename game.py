@@ -71,6 +71,12 @@ while running:
         for i in range(0, 10):
             if entX > wallsX[i]-10 and entX < wallsX[i] + 60 and entY < wallsY[i]+60 and entY > wallsY[i] - 10:
                 entY -= 1
+    elif keys[pygame.K_r]:
+        enemyX = random.randrange(10, 790)
+        enemyY = random.randrange(10, 590)
+    elif keys[pygame.K_F1]:
+        entX = random.randrange(10, 790)
+        entY = random.randrange(10, 590)
     if s == 0:
         bulletX = entX
         bulletY = entY
@@ -89,6 +95,10 @@ while running:
             bulletY += 2
         if bulletX <= -3 or bulletX >= 803 or bulletY <= -3 or bulletY >= 603:
             s = 0
+        if bulletX > enemyX - 10 and bulletX < enemyX + 10 and bulletY > enemyY - 10 and bulletY < enemyY + 10:
+            s = 0
+            enemyX = random.randrange(10, 790)
+            enemyY = random.randrange(10, 590)
         for i in range(0, 10):
             if bulletX > wallsX[i]-10 and bulletX < wallsX[i] + 60 and bulletY < wallsY[i]+60 and bulletY > wallsY[i] - 10:
                 s = 0
