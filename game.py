@@ -6,6 +6,8 @@ screen = pygame.display.set_mode((800, 600))
 
 entX = 400
 entY = 300
+enemyX = random.randrange(10, 790)
+enemyY = random.randrange(10, 590)
 s = 0
 
 current_path = os.path.dirname(__file__)
@@ -25,7 +27,7 @@ lastKey = "u"
 for i in range(0, 10):
     wallsX[i] = random.randrange(0, 750)
     wallsY[i] = random.randrange(0, 550)
-    while 410 > wallsX[i] - 10 and 410 < wallsX[i] + 60 and 310 > wallsY[i] and 310 < wallsY[i]+60:
+    while 410 > wallsX[i] - 10 and 410 < wallsX[i] + 60 and 310 > wallsY[i] and 310 < wallsY[i]+60 and enemyX+10 > wallsX[i] - 10 and enemyX+10 < wallsX[i] + 60 and enemyY+10 > wallsY[i] and enemyY+10 < wallsY[i]+60:
         wallsX[i] = random.randrange(0, 750)
         wallsY[i] = random.randrange(0, 550)
 
@@ -87,8 +89,12 @@ while running:
             bulletY += 2
         if bulletX <= -3 or bulletX >= 803 or bulletY <= -3 or bulletY >= 603:
             s = 0
+        for i in range(0, 10):
+            if bulletX > wallsX[i]-10 and bulletX < wallsX[i] + 60 and bulletY < wallsY[i]+60 and bulletY > wallsY[i] - 10:
+                s = 0
     for i in range(0, 10):
         pygame.draw.rect(screen, (50, 50, 50), (wallsX[i], wallsY[i], 50, 50))
     pygame.draw.circle(screen, (134, 0, 0), (bulletX, bulletY), 3)
     pygame.draw.circle(screen, (125, 0, 125), (entX, entY), 10)
+    pygame.draw.circle(screen, (0, 0, 125), (enemyX, enemyY), 10)
     pygame.display.update()
