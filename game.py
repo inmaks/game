@@ -13,7 +13,7 @@ s = 0
 
 current_path = os.path.dirname(__file__)
 resource_path = os.path.join(current_path, 'resources')
-sound_path = os.path.join(current_path, 'sounds')
+sound_path = os.path.join(resource_path, 'sounds')
 image_path = os.path.join(resource_path, 'images')
 
 wallsX = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
