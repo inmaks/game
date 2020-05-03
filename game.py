@@ -24,6 +24,8 @@ pygame.display.set_icon(icon)
 
 running = True
 
+lastKey = "u"
+
 sound = pygame.mixer.Sound(os.path.join(sound_path, 'Hit 1.wav'))
 music = pygame.mixer.music.load(os.path.join(sound_path, 'bgm.wav'))
 
