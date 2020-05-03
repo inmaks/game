@@ -6,6 +6,7 @@ down arrow to go down;
 up arrow to go up;
 F1 - to change Your position to random if You stuck in wall;
 r - to change enemy position if it stuck in wall;
+Left mouse button - shoot;
 
 --------------------------------------------------
 
